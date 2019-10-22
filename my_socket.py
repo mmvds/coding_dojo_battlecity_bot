@@ -84,26 +84,26 @@ def on_message(ws, message):
     
     def minus_pp(objects, object_map, fee):
         for object_i, object_j  in objects:
-        for k in range(1, min(object_j + 1, fee)):
-                if object_map[object_i][object_j - k] in filled_objects:
-                    object_map[bullet_i][object_j - k] = fee - k
-                else:
-                    break
-        for k in range(1,min(size - bullet_j,fee)):
-                if object_map[object_i][object_j + k] in filled_objects:
-                    object_map[object_i][object_j + k] = fee - k
-                else:
-                    break
-        for k in range(1, min(object_i + 1, fee)):
-                if object_map[object_i - k][object_j] in filled_objects:
-                    object_map[object_i - k][object_j] = fee - k
-                else:
-                    break
-        for k in range(1,min(size - object_i,fee)):
-                if object_map[object_i + k][object_j] in filled_objects:
-                    object_map[object_i + k][object_j] = fee - k
-                else:
-                    break
+            for k in range(1, min(object_j + 1, fee)):
+                    if object_map[object_i][object_j - k] in filled_objects:
+                        object_map[bullet_i][object_j - k] = fee - k
+                    else:
+                        break
+            for k in range(1,min(size - bullet_j,fee)):
+                    if object_map[object_i][object_j + k] in filled_objects:
+                        object_map[object_i][object_j + k] = fee - k
+                    else:
+                        break
+            for k in range(1, min(object_i + 1, fee)):
+                    if object_map[object_i - k][object_j] in filled_objects:
+                        object_map[object_i - k][object_j] = fee - k
+                    else:
+                        break
+            for k in range(1,min(size - object_i,fee)):
+                    if object_map[object_i + k][object_j] in filled_objects:
+                        object_map[object_i + k][object_j] = fee - k
+                    else:
+                        break
     minus_pp(bullets, bullet_map, fee)
     minus_pp(antitanks, antitank_map, fee)
 
